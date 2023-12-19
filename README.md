@@ -1,62 +1,36 @@
-# RiceCooker Project
+# Rice Cooker Simulator Refactoring
 
-## Description
-This project implements a Rice Cooker application that allows users to cook various food items, managing their quantities and cooking times. It provides features to add multiple food items, set cooking time, and receive notifications upon completion.
-This application is useful for anyone who wants an automated system to cook different food items simultaneously.
-The aim of this project is to simplify the cooking process by providing an automated solution for preparing various food items with customizable cooking times.
-The project code is written in multiple languages: Ruby, Dart, Scala, and C#. Each implementation follows specific coding standards and utilizes different linting tools.
+## Overview
 
-## Features
-- **Multi-language Support:** Implemented in Ruby, Dart, Scala, and C#.
-- **Add Multiple Items:** Users can add multiple food items to the cooker.
-- **Set Cooking Time:** Users can set the cooking time for added items.
-- **Completion Notification:** Notifies users when cooking is complete.
+This repository contains a refactored version of a JavaScript-based Rice Cooker Simulator. The original code was refactored to improve readability, maintainability, and adherence to JavaScript coding standards.
 
-## Bugs
-- Resolved issue with capacity calculation in Ruby implementation.
+## Changes Made
 
-## Installation and Requirements
+### Refactored Code
+- Transformed the original rice cooker functionality, previously defined as an object, into a `RiceCooker` class for better encapsulation and organization of methods.
+- Introduced a `switch` statement to handle user choices within the simulation, replacing multiple `if-else` conditions for better readability.
 
-### Ruby
-- **Coding Standards:** Ruby code follows the standard Ruby style guide.
-- **Linter:** Utilizes RuboCop for linting.
-- **Requirements:** Install Ruby and Bundler. Run `bundle install` to set up dependencies.
+### Comparison: Before vs After Refactoring
 
-### Dart
-- **Coding Standards:** Adheres to Dart's recommended style guide.
-- **Linter:** Utilizes Dart Analysis Server for linting.
-- **Requirements:** Install Dart SDK.
+#### Improvements:
+- **Code Structure**: Before, the code was structured around an object with methods, making it prone to becoming unwieldy as more functionality was added. After refactoring, a class-based approach provides better organization and maintainability.
+- **Readability**: The use of a class with separate methods for different functionalities enhances code readability and understanding.
+- **Switch Statement**: Replacing multiple `if-else` statements with a `switch` statement improves code readability and reduces nesting.
 
-### Scala
-- **Coding Standards:** Follows Scala's recommended coding conventions.
-- **Linter:** Employs Scalafix for linting.
-- **Requirements:** Install Scala and sbt (Scala Build Tool).
+#### Vulnerabilities:
+- **Blocking Delay**: Both versions contain a potential issue with the `delaySync` method that employs a blocking delay using a while loop, which could negatively impact performance in real-world applications, especially in single-threaded environments like Node.js.
+- **Input Validation**: Both versions lack extensive input validation. While the refactored version performs basic checks for valid numerical input, it doesn’t cover edge cases or inputs beyond numerical choices.
 
-### C#
-- **Coding Standards:** Follows Microsoft's C# coding conventions.
-- **Linter:** Utilizes StyleCop and Roslyn Analyzers for linting.
-- **Requirements:** Install .NET Core/SDK.
+## Running the Simulator
 
-## How to Use
-- Each language implementation contains its specific instructions on how to run the Rice Cooker application.
+To run the Rice Cooker Simulator:
 
-### Ruby
-1. Navigate to the Ruby project directory.
-2. Install dependencies with `bundle install`.
-3. Run the application using `ruby main.rb`.
+1. Clone this repository.
+2. Ensure you have Node.js installed.
+3. Install dependencies using `npm install prompt sync`.
+4. Run the simulator using `node main.js`.
 
-### Dart
-1. Access the Dart project directory.
-2. Execute the application with `dart main.dart`.
+## Conclusion
 
-### Scala
-1. Go to the Scala project directory.
-2. Run the application using `sbt run`.
-
-### C#
-1. Access the C# project directory.
-2. Build the project with `dotnet build`.
-3. Execute the built application.
-
-### TODO : explique dans le readme ce que vous avez fait dans le refactoring et la compléxité du code#
+The refactoring process improved the code's structure, readability, and maintainability. However, it retained some vulnerabilities related to input validation and the blocking delay method that could be addressed for better performance and robustness in a production environment.
 
