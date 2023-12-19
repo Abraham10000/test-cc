@@ -58,3 +58,5 @@ The project code is written in multiple languages: Ruby, Dart, Scala, and C#. Ea
 2. Build the project with `dotnet build`.
 3. Execute the built application.
 
+### TODO : explique dans le readme ce que vous avez fait dans le refactoring et la compléxité du code#
+
